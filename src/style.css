@@ -43,3 +43,21 @@ body{
     background-color: grey;
     border: none;
 }
+.all-anime{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.anime-search {
+    padding: 10px 20px; 
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.5rem;
+    text-align: center; 
+    word-wrap: break-word; 
+    max-width: 100%; 
+    margin-bottom: 20px; 
+    background-color: rgba(255, 255, 255, 0.1); 
+    border-radius: 10px; 
+}
