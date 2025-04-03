@@ -1,0 +1,45 @@
+body{
+    margin: 0;
+    background-color: hsl(0, 0%, 15%);
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    border: 0.1px solid grey;
+    background-color: transparent;
+}
+.anime-info{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.logo img{
+    max-height: 100px;
+    padding: 20px 15px;
+}
+.search-bar input{
+    border-radius: 10px;
+    padding: 15px 210px 15px 5px;
+    background-color: grey;
+    border: none;
+}
+.animeInputName{
+    color: white;
+}
+.animeInputName::placeholder{
+    color: hsl(0, 0%, 80%);
+}
+.button-type{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.button-type button{
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
+    color: white;
+    background-color: grey;
+    border: none;
+}
