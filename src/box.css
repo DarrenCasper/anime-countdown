@@ -1,0 +1,51 @@
+.anime-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 250px;
+    margin: 5px;
+    padding: 15px;
+    background-color: #1e1e2f;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .anime-card img.anime-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .anime-card .anime-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .anime-card .anime-synopsis {
+    font-size: 14px;
+    margin: 10px 0;
+    color: #cccccc;
+    height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .anime-card .anime-episodes,
+  .anime-card .anime-score {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .all-anime-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
