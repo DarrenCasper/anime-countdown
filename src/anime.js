@@ -6,7 +6,6 @@ const animeSearch = document.querySelector(`.anime-search`);
 
 searchBar.addEventListener(`keydown` , async event =>{
     if(event.key === `Enter`){
-
         const animeName = animeInputName.value.trim();
         if(animeName){
             try{
@@ -59,3 +58,17 @@ function displayAnimeInfo(animeList , animeName) {
         animeContainer.appendChild(animeDiv);
     });
 }
+
+animeInputName.addEventListener(`input`, () => {
+    const animeCard = document.querySelectorAll(`.anime-card`);
+    const animeSearchContainer = document.querySelector(`.anime-search`);
+    const animeContainer = document.querySelector('.all-anime-info');
+    if(animeInputName.value.trim() === ``){
+        animeCard.forEach(card => card.classList.add(`hidden`));
+        animeSearchContainer.innerHTML = ``;
+        animeContainer.innerHTML = ``;
+    }
+    else{
+        animeCard.forEach(card => card.classList.remove(`hidden`));
+    }
+});
