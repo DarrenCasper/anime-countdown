@@ -9,10 +9,7 @@ searchBar.addEventListener(`keydown` , async event =>{
         const animeName = animeInputName.value.trim();
         if(animeName){
             try{
-                console.clear();
                 const animeInfo = await getAnimeName(animeName);
-                console.log(animeInfo);
-
                 displayAnimeInfo(animeInfo , animeName);
             }
             catch(error){
