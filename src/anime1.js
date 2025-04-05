@@ -14,10 +14,11 @@ document.addEventListener(`DOMContentLoaded`, async event =>{
         const animeSeasonDataCurrent = await getAnimeSeasonNow();
         const animeSeasonDataUpcoming = await getAnimeSeasonUpcoming();
         const animeTrendingData = await getAnimeTrending();
-        console.log(animeTrendingData);
+        console.log(animeSeasonDataCurrent);
         displayAnimeCountdownText(animeSeasonDataCurrent);
         displayAnimeSeasonNow(animeSeasonDataCurrent);
         displayAnimeSeasonUpcoming(animeSeasonDataUpcoming);
+        displayAnimeTrending(animeTrendingData);
     }
     catch(error){
         console.error(error);
@@ -72,7 +73,7 @@ function displayAnimeCountdownText(animeList){
     const animeYear = animeList[0].year;
     animeDivTitle.classList.add(`anime-title`);
     animeDivTitle.innerHTML = `
-        <p class="anime-header">Anime Countdown</p>
+        <p class="anime-header">Anime Countdown, Schedules, and Release Dates.</p>
         <p class="anime-footer">Anime timers and charts for ${season} ${animeYear} and beyond</p>
     `;
     animeCountDown.appendChild(animeDivTitle);
@@ -80,22 +81,29 @@ function displayAnimeCountdownText(animeList){
 
 function displayAnimeSeasonNow(animeList){
     const animeDivTitle = document.createElement(`div`);
-    animeDivTitle.classList.add(`anime-title`);
+    animeDivTitle.classList.add(`anime-title1`);
     animeDivTitle.innerHTML = `
         <p class="anime-header">Current Season Anime</p>
     `;
     currentSeason.appendChild(animeDivTitle);
 
     animeList.forEach(anime => {
-        const { title, synopsis, images, episodes, score } = anime;
+        const { title, title_japanese, images, broadcast} = anime;
+        const { day, time, string, timezone} = broadcast || {};
         const animeDiv = document.createElement('div');
-        animeDiv.classList.add('anime-card');
+        animeDiv.classList.add('anime-card1');
         animeDiv.innerHTML = `
+            <div class="anime-leftside">
             <img src="${images.jpg.image_url}" alt="${title}" class="anime-image">
-            <h3 class="anime-title">${title}</h3>
-            <p class="anime-synopsis">${synopsis || 'No synopsis available.'}</p>
-            <p class="anime-episodes">Episodes: ${episodes || 'N/A'}</p>
-            <p class="anime-score">Score: ${score || 'N/A'}</p>
+            </div>
+            <div class="anime-rightside">
+            <h3 class="anime-title2">${title}</h3>
+            <p class="anime-title-japanese">${title_japanese || 'No Japanese title available.'}</p>
+            <p class="anime-broadcast">${string || 'No broadcast information available.'}</p>
+            <p class="anime-broadcast-details">
+                Day: ${day || 'N/A'}, Time: ${time || 'N/A'}, Timezone: ${timezone || 'N/A'}
+            </p>
+            </div>
         `;
         currentSeason.appendChild(animeDiv);
     });
@@ -103,23 +111,61 @@ function displayAnimeSeasonNow(animeList){
 
 function displayAnimeSeasonUpcoming(animeList){
     const animeDivTitle = document.createElement(`div`);
-    animeDivTitle.classList.add(`anime-title`);
+    animeDivTitle.classList.add(`anime-title1`);
     animeDivTitle.innerHTML = `
         <p class="anime-header">Upcoming Season Anime</p>
     `;
     upcoming.appendChild(animeDivTitle);
 
     animeList.forEach(anime => {
-        const { title, synopsis, images, episodes, score } = anime;
+        const { title, title_japanese, images, broadcast} = anime;
+        const { day, time, string, timezone} = broadcast || {};
         const animeDiv = document.createElement('div');
-        animeDiv.classList.add('anime-card');
+        animeDiv.classList.add('anime-card1');
         animeDiv.innerHTML = `
+            <div class="anime-leftside">
             <img src="${images.jpg.image_url}" alt="${title}" class="anime-image">
-            <h3 class="anime-title">${title}</h3>
-            <p class="anime-synopsis">${synopsis || 'No synopsis available.'}</p>
-            <p class="anime-episodes">Episodes: ${episodes || 'N/A'}</p>
-            <p class="anime-score">Score: ${score || 'N/A'}</p>
+            </div>
+            <div class="anime-rightside">
+            <h3 class="anime-title2">${title}</h3>
+            <p class="anime-title-japanese">${title_japanese || 'No Japanese title available.'}</p>
+            <p class="anime-broadcast">${string || 'No broadcast information available.'}</p>
+            <p class="anime-broadcast-details">
+                Day: ${day || 'N/A'}, Time: ${time || 'N/A'}, Timezone: ${timezone || 'N/A'}
+            </p>
+            </div>
         `;
         upcoming.appendChild(animeDiv);
     });
 }
+
+function displayAnimeTrending(animeList){
+    const animeDivTitle = document.createElement(`div`);
+    animeDivTitle.classList.add(`anime-title1`);
+    animeDivTitle.innerHTML = `
+        <p class="anime-header">Trending Anime</p>
+    `;
+    trending.appendChild(animeDivTitle);
+
+    animeList.forEach(anime => {
+        const { title, title_japanese, images, broadcast} = anime;
+        const { day, time, string, timezone} = broadcast || {};
+        const animeDiv = document.createElement('div');
+        animeDiv.classList.add('anime-card1');
+        animeDiv.innerHTML = `
+            <div class="anime-leftside">
+            <img src="${images.jpg.image_url}" alt="${title}" class="anime-image">
+            </div>
+            <div class="anime-rightside">
+            <h3 class="anime-title2">${title}</h3>
+            <p class="anime-title-japanese">${title_japanese || 'No Japanese title available.'}</p>
+            <p class="anime-broadcast">${string || 'No broadcast information available.'}</p>
+            <p class="anime-broadcast-details">
+                Day: ${day || 'N/A'}, Time: ${time || 'N/A'}, Timezone: ${timezone || 'N/A'}
+            </p>
+            </div>
+        `;
+        trending.appendChild(animeDiv);
+    });
+}
+
