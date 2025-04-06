@@ -1,5 +1,7 @@
 // Get anime details first (experimental phase)
 
+import { hideAnime1Content, showAnime1Content } from './anime1.js';
+
 const animeInputName = document.querySelector(`.animeInputName`);
 const searchBar = document.querySelector(`.search-bar`);
 const animeSearch = document.querySelector(`.anime-search`);
@@ -9,6 +11,7 @@ searchBar.addEventListener(`keydown` , async event =>{
         const animeName = animeInputName.value.trim();
         if(animeName){
             try{
+                hideAnime1Content();
                 const animeInfo = await getAnimeName(animeName);
                 displayAnimeInfo(animeInfo , animeName);
             }
@@ -64,8 +67,10 @@ animeInputName.addEventListener(`input`, () => {
         animeCard.forEach(card => card.classList.add(`hidden`));
         animeSearchContainer.innerHTML = ``;
         animeContainer.innerHTML = ``;
+        showAnime1Content();
     }
     else{
         animeCard.forEach(card => card.classList.remove(`hidden`));
+        hideAnime1Content();
     }
 });

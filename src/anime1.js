@@ -1,5 +1,5 @@
 
-
+const animeMainContainer = document.querySelector(`.anime-main-container`);
 const animeCategories = document.querySelector(`.anime-categories`);
 const animeCountDown = document.querySelector(`.anime-countdown`);
 const trending = document.querySelector(`.trending`);
@@ -14,7 +14,6 @@ document.addEventListener(`DOMContentLoaded`, async event =>{
         const animeSeasonDataCurrent = await getAnimeSeasonNow();
         const animeSeasonDataUpcoming = await getAnimeSeasonUpcoming();
         const animeTrendingData = await getAnimeTrending();
-        console.log(animeSeasonDataCurrent);
         displayAnimeCountdownText(animeSeasonDataCurrent);
         displayAnimeSeasonNow(animeSeasonDataCurrent);
         displayAnimeSeasonUpcoming(animeSeasonDataUpcoming);
@@ -169,3 +168,12 @@ function displayAnimeTrending(animeList){
     });
 }
 
+export function hideAnime1Content() {
+    const animeMainContainer = document.querySelector(`.anime-main-container`);
+    animeMainContainer.classList.add('hidden'); 
+}
+
+export function showAnime1Content() {
+    const animeMainContainer = document.querySelector(`.anime-main-container`);
+    animeMainContainer.classList.remove('hidden'); 
+}
