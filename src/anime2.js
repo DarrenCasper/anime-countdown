@@ -9,7 +9,8 @@ const trendingBtn = document.querySelector(`.trending-Btn`);
 const upcomingBtn = document.querySelector(`.upcoming-Btn`);
 const currentSeasonBtn = document.querySelector(`.current-season-Btn`);
 const homeBtn = document.querySelector(`.home-Btn`);
-
+const waveBtn = document.querySelector(`.wave-Btn`);
+waveBtn.addEventListener('click', turnoff);
 
 trendingBtn.addEventListener(`click`, async () => {
     const trendingData = await getAnimeTrending();
@@ -121,6 +122,20 @@ function currentDisplay(animeList){
         animeContainer.appendChild(animeDiv);
     });
 }
+
+function turnoff() {
+    const waveBackground = document.querySelector(`.wave-background`);
+    const waveInfo = document.querySelector(`.wave-info`);
+
+    if (waveBackground.classList.contains('hidden')) {
+        waveBackground.classList.remove('hidden'); // Show the wave background
+        waveInfo.textContent = '🌊ON'; // Update button text
+    } else {
+        waveBackground.classList.add('hidden'); // Hide the wave background
+        waveInfo.textContent = '🌊OFF'; // Update button text
+    }
+}
+
 
 async function getAnimeSeasonNow(){
     try{
