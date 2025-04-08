@@ -43,13 +43,13 @@ body{
     background-color: grey;
     border: none;
 }
-.all-anime{
+.all-anime, .trending-anime{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
-.anime-search {
+.anime-search{
     color: white;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.5rem;
@@ -62,4 +62,14 @@ body{
 }
 .hidden{
     display: none ;
+}
+.trending-anime-title, .upcoming-anime-title, .current-season-anime-title{
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2.5rem;
+    text-align: center; 
+    word-wrap: break-word; 
+    max-width: 100%; 
+    margin-bottom: 10px; 
+    border-radius: 10px; 
 }

@@ -42,7 +42,7 @@
     margin: 5px 0;
   }
   
-  .all-anime-info {
+  .all-anime-info , .trending-anime-info, .upcoming-anime-info , .current-season-anime-info{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

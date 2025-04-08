@@ -14,9 +14,9 @@
         <div class="anime-info">
           <div class="search-bar"><input type="text" class="animeInputName" placeholder="Search for the Anime Name!"></div>
           <div class="button-type">
-            <button class="trending-Btn">TRENDING</button>
-            <button class="upcoming-Btn">UPCOMING</button>
-            <button class="current-season-Btn">CURRENT SEASON</button>
+            <button class="trending-Btn" onclick="trendingDisplay()">TRENDING</button>
+            <button class="upcoming-Btn" onclick="upcomingDisplay()">UPCOMING</button>
+            <button class="current-season-Btn" onclick="currentDisplay()">CURRENT SEASON</button>
             <button class="home-Btn">HOME</button>
           </div>
         </div>
@@ -40,7 +40,24 @@
       </div>
 
 
+      <div class="trending-anime">
+        <div class="trending-anime-title"></div>
+        <div class="trending-anime-info"></div>
+      </div>
+
+      <div class="upcoming-anime">
+        <div class="upcoming-anime-title"></div>
+        <div class="upcoming-anime-info"></div>
+      </div>
+
+      <div class="current-season-anime">
+        <div class="current-season-anime-title"></div>
+        <div class="current-season-anime-info"></div>
+      </div>
+
+
       <script type="module" src="src/anime.js"></script>
       <script type="module" src="src/anime1.js"></script>
+      <script type="module" src="src/anime2.js"></script>
   </body>
 </html>
