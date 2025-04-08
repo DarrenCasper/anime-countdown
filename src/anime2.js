@@ -8,6 +8,7 @@ const currentSeasonAnime = document.querySelector(`.current-season-anime`);
 const trendingBtn = document.querySelector(`.trending-Btn`);
 const upcomingBtn = document.querySelector(`.upcoming-Btn`);
 const currentSeasonBtn = document.querySelector(`.current-season-Btn`);
+const homeBtn = document.querySelector(`.home-Btn`);
 
 
 trendingBtn.addEventListener(`click`, async () => {
@@ -35,6 +36,13 @@ currentSeasonBtn.addEventListener(`click` ,async () => {
     hideTrending();
     hideUpcoming();
     currentDisplay(currentData);
+});
+
+homeBtn.addEventListener(`click` , () => {
+    hideTrending();
+    hideUpcoming();
+    hideCurrent();
+    showAnime1Content();
 });
 
 

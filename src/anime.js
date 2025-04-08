@@ -1,6 +1,7 @@
 // Get anime details first (experimental phase)
 
 import { hideAnime1Content, showAnime1Content } from './anime1.js';
+import { hideTrending, showTrending, hideCurrent, showCurrent, hideUpcoming, showUpcoming } from './anime2.js';
 
 const animeInputName = document.querySelector(`.animeInputName`);
 const searchBar = document.querySelector(`.search-bar`);
@@ -12,6 +13,9 @@ searchBar.addEventListener(`keydown` , async event =>{
         if(animeName){
             try{
                 hideAnime1Content();
+                hideTrending();
+                hideUpcoming();
+                hideCurrent();
                 const animeInfo = await getAnimeName(animeName);
                 displayAnimeInfo(animeInfo , animeName);
             }
